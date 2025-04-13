@@ -13,19 +13,21 @@
             <img src="young-boubou.png" width="250" height="250" alt="A Cute Young Boubou">
             <!-- alt est une description de l'image, il sera affiché si l'image ne charge pas, important pour le référencement Google-->
             <h3> Boubou Lists</h3></h3>
-            <p>Things Boubou <em>love</em> :</p> <!--em pour écrire en italique-->
-            <ul> <!--For unordered list, elle sera représenté sous bullet point-->
-                <li>Anime</li>
-                <li>Video Games</li>
-                <li>Japan</li>
-            </ul>
-            <img src="Japan.jpg" alt="Japan picture" width="250" height="200">
-            <p>Things cats <strong>hate</strong>: </p> <!--strong pour mettre en gras le mot-->
-            <ol> <!-- Ol = Ordered list, elle sera représenté sous forme de 1.,2.,3.-->
-                <li>L'ail</li>
-                <li>Procastiner</li>
-                <li>Le désordre</li>
-            </ol>
+            <div class="lists"> <!--Div sert à regrouper les éléments, ici nous avons des listes, ce sera plus simple de changer la couleur du texte d'un autre couleur par exemple. Avec du CSS c'est plus simple de targeter des éléments avec une class lists-->
+                <p>Things Boubou <em>love</em> :</p> <!--em pour écrire en italique-->
+                <ul> <!--For unordered list, elle sera représenté sous bullet point-->
+                    <li>Anime</li>
+                    <li>Video Games</li>
+                    <li>Japan</li>
+                </ul>
+                <img src="Japan.jpg" alt="Japan picture" width="250" height="200">
+                <p>Things Boubou <strong>hate</strong>: </p> <!--strong pour mettre en gras le mot-->
+                <ol> <!-- Ol = Ordered list, elle sera représenté sous forme de 1.,2.,3.-->
+                    <li>L'ail</li>
+                    <li>Procastiner</li>
+                    <li>Le désordre</li>
+                </ol>
+            </div>
             <img src="Young boubettos.JPG" alt="Young boubettos" width="250" height="200">
             <form action="/submit-boubou-photo">
                 </label for="Seul"><input id="Seul" type="radio" name="Seul-Accompagné" checked>Seul</label><br> <!--radio concerne les ronds cliquables-->
@@ -41,5 +43,8 @@
                 <!--Cliquer sur le bouton permet d'envoyer la data du form à l'URL-->
             </form>
         </main>
+        <footer> <!--pied de page-->
+            <p><small>No Copyright - <a href="https://www.instagram.com/lirbenjamin/">Boubou Official Fan Page.org</a></small></p>
+        </footer>
     </body>
 </html>
