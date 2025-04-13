@@ -26,7 +26,20 @@
                 <li>Procastiner</li>
                 <li>Le désordre</li>
             </ol>
-            <img src="Désordre.jpg" alt="Cuisine en désordre" width="250" height="200">
+            <img src="Young boubettos.JPG" alt="Young boubettos" width="250" height="200">
+            <form action="/submit-boubou-photo">
+                </label for="Seul"><input id="Seul" type="radio" name="Seul-Accompagné" checked>Seul</label><br> <!--radio concerne les ronds cliquables-->
+                <!--Le fait d'avoir mis name="Seul-Accompagné aux deux radio bouttons nous permet de n'en sélectionner qu'un seul"-->
+                <!--attribut BR = ligne break, permet de faire un saut à la ligne entre les éléments-->
+                <!--Checked permet de cocher déjà au départ ces éléments, l'utilisateur pourra choisir d'autres éléments-->
+                </label for="Accompagné"><input id="Accompagné" type="radio" name="Seul-Accompagné">Accompagné</label><br>
+                </label for="Dynamique"><input id="Dynmamique" type="checkbox" name="personnality" checked>Dynamique</label><br>
+                </label for="Pensif"><input id="Pensif" type="checkbox" name="personnality">Pensif</label><br>
+                </label for="Fatigué"><input id="Fatigué" type="checkbox" name="personnality">Fatigué</label><br>
+                <input type="text" placeholder="Boubou photo URL" required><br> <!--Attribut required oblige l'utilisateur à mettre une URL avant de submit-->
+                <button type="submit">Submit</button> <!--Nous n'avons pas implémenté ce qui passe après avoir cliqué sur submit par rapport à l'URL-->
+                <!--Cliquer sur le bouton permet d'envoyer la data du form à l'URL-->
+            </form>
         </main>
     </body>
 </html>
