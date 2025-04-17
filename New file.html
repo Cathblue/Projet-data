@@ -6,8 +6,6 @@
   <title>Boubou Fan Page</title>
 
   <style>
-    /* CSS intégré */
-
     * {
       margin: 0;
       padding: 0;
@@ -56,17 +54,17 @@
       font-size: 3rem;
     }
 
-    .gallery {
+    .gallery, .fan-gallery {
       padding: 2rem;
     }
 
-    .image-grid {
+    .image-grid, #fanGallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
     }
 
-    .image-grid img {
+    .image-grid img, #fanGallery img {
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -126,6 +124,7 @@
         <li><a href="#photos">Photos</a></li>
         <li><a href="#listes">Listes</a></li>
         <li><a href="#formulaire">Formulaire</a></li>
+        <li><a href="#fan-gallery">Fan Gallery</a></li>
       </ul>
     </nav>
   </header>
@@ -162,7 +161,7 @@
 
     <section id="formulaire" class="form-section">
       <h2>Soumettre une photo de Boubou</h2>
-      <form>
+      <form id="photoForm">
         <label><input type="radio" name="accompagnement" value="alone" checked /> Seul(e)</label>
         <label><input type="radio" name="accompagnement" value="accompanied" /> Accompagné(e)</label><br/>
 
@@ -170,9 +169,14 @@
         <label><input type="checkbox" name="personality" value="Thoughtful" /> Réfléchi(e)</label>
         <label><input type="checkbox" name="personality" value="Lazy" /> Paresseux(se)</label><br/>
 
-        <input type="text" placeholder="Lien vers la photo" required />
+        <input type="text" name="photoUrl" placeholder="Lien vers la photo" required />
         <button type="submit">Envoyer</button>
       </form>
+    </section>
+
+    <section id="fan-gallery" class="fan-gallery">
+      <h2>Galerie des fans 💖</h2>
+      <div id="fanGallery" class="image-grid"></div>
     </section>
   </main>
 
@@ -181,10 +185,33 @@
   </footer>
 
   <script>
-    // JS intégré
-    document.querySelector("form").addEventListener("submit", function(e) {
+    const form = document.getElementById("photoForm");
+    const gallery = document.getElementById("fanGallery");
+
+    // Charger les images depuis le LocalStorage
+    window.addEventListener("load", function () {
+      const savedPhotos = JSON.parse(localStorage.getItem("fanPhotos")) || [];
+      savedPhotos.forEach((url) => addImage(url));
+    });
+
+    function addImage(url) {
+      const img = document.createElement("img");
+      img.src = url;
+      img.alt = "Photo fan de Boubou";
+      gallery.appendChild(img);
+    }
+
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
-      alert("Merci pour ta soumission ! 💖");
+      const url = form.photoUrl.value.trim();
+      if (url !== "") {
+        addImage(url);
+        let savedPhotos = JSON.parse(localStorage.getItem("fanPhotos")) || [];
+        savedPhotos.push(url);
+        localStorage.setItem("fanPhotos", JSON.stringify(savedPhotos));
+        alert("Merci pour ta soumission ! 💖");
+        form.reset();
+      }
     });
   </script>
 </body>
